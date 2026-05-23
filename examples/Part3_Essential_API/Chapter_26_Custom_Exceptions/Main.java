@@ -1,21 +1,13 @@
 public class Main {
     public static void main(String[] args) {
+        BankAccount acc = new BankAccount("ACC-1", 10_000);
+
         try {
-            validateAge(15);
-        } catch (InvalidAgeException ex) {
-            System.out.println("Validation error: " + ex.getMessage());
+            acc.withdraw(3_000);
+            System.out.println("balance: " + acc.getBalance());
+            acc.withdraw(20_000);
+        } catch (InsufficientFundsException e) {
+            System.out.println("error: " + e.getMessage() + " (short " + e.getShortage() + ")");
         }
-    }
-
-    static void validateAge(int age) throws InvalidAgeException {
-        if (age < 18) {
-            throw new InvalidAgeException("Age must be 18 or older.");
-        }
-    }
-}
-
-class InvalidAgeException extends Exception {
-    InvalidAgeException(String message) {
-        super(message);
     }
 }

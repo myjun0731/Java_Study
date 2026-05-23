@@ -5,17 +5,26 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<String> names = new ArrayList<>();
-        names.add("Cora");
-        names.add("Ava");
-        names.add("Ben");
+        List<Student> students = new ArrayList<>();
+        students.add(new Student("Cora", 78));
+        students.add(new Student("Ava", 92));
+        students.add(new Student("Ben", 85));
 
-        Iterator<String> iterator = names.iterator();
-        while (iterator.hasNext()) {
-            System.out.println("Iterating: " + iterator.next());
+        Iterator<Student> it = students.iterator();
+        while (it.hasNext()) {
+            System.out.println("iter: " + it.next());
         }
 
-        names.sort(Comparator.naturalOrder());
-        System.out.println("Sorted: " + names);
+        students.sort(Comparator.comparingInt(Student::score));
+        System.out.println("by score asc :");
+        students.forEach(s -> System.out.println("  " + s));
+
+        students.sort(Comparator.comparingInt(Student::score).reversed());
+        System.out.println("by score desc:");
+        students.forEach(s -> System.out.println("  " + s));
+
+        students.sort(Comparator.comparing(Student::name));
+        System.out.println("by name      :");
+        students.forEach(s -> System.out.println("  " + s));
     }
 }

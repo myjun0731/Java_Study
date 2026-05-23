@@ -1,32 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        Car car = new Car();
-        car.start();
-        car.move();
-        car.stop();
-    }
-}
+        Document doc = new Document("Report.pdf", 1500);
+        doc.print();
+        System.out.println("fee = " + doc.calculateFee());
 
-interface Movable {
-    void move();
-}
+        Printable p = doc;
+        p.print();
 
-interface Stoppable {
-    void stop();
-}
-
-class Car implements Movable, Stoppable {
-    void start() {
-        System.out.println("Car started.");
-    }
-
-    @Override
-    public void move() {
-        System.out.println("Car is moving.");
-    }
-
-    @Override
-    public void stop() {
-        System.out.println("Car stopped.");
+        Payable pay = doc;
+        System.out.println("via Payable: " + pay.calculateFee());
     }
 }

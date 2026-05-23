@@ -1,38 +1,24 @@
 public class Main {
     public static void main(String[] args) {
-        Outer outer = new Outer("OuterValue");
+        Outer outer = new Outer("OUTER");
+
         Outer.Inner inner = outer.new Inner();
         inner.show();
 
-        Outer.StaticNested nested = new Outer.StaticNested();
+        Outer.Nested nested = new Outer.Nested();
         nested.show();
 
-        Runnable runnable = new Runnable() {
+        outer.runLocal();
+
+        Runnable anon = new Runnable() {
             @Override
             public void run() {
-                System.out.println("Anonymous inner class running.");
+                System.out.println("anonymous run");
             }
         };
-        runnable.run();
-    }
-}
+        anon.run();
 
-class Outer {
-    private final String name;
-
-    Outer(String name) {
-        this.name = name;
-    }
-
-    class Inner {
-        void show() {
-            System.out.println("Inner sees: " + name);
-        }
-    }
-
-    static class StaticNested {
-        void show() {
-            System.out.println("Static nested class.");
-        }
+        Runnable lambda = () -> System.out.println("lambda run");
+        lambda.run();
     }
 }

@@ -1,38 +1,21 @@
 public class Main {
     public static void main(String[] args) {
-        Animal animal = new Dog("Buddy");
-        animal.speak();
+        Shape[] shapes = {
+            new Circle(3),
+            new Rectangle(4, 5),
+            new Triangle(6, 4)
+        };
 
-        if (animal instanceof Dog) {
-            Dog dog = (Dog) animal;
-            dog.fetch();
+        double total = 0;
+        for (Shape s : shapes) {
+            System.out.printf("%-10s area = %.2f%n", s.getClass().getSimpleName(), s.area());
+            total += s.area();
         }
-    }
-}
+        System.out.printf("total = %.2f%n", total);
 
-class Animal {
-    String name;
-
-    Animal(String name) {
-        this.name = name;
-    }
-
-    void speak() {
-        System.out.println(name + " makes a sound.");
-    }
-}
-
-class Dog extends Animal {
-    Dog(String name) {
-        super(name);
-    }
-
-    @Override
-    void speak() {
-        System.out.println(name + " barks.");
-    }
-
-    void fetch() {
-        System.out.println(name + " fetches the ball.");
+        Shape s = shapes[0];
+        if (s instanceof Circle c) {
+            System.out.println("radius of first: " + c.getRadius());
+        }
     }
 }

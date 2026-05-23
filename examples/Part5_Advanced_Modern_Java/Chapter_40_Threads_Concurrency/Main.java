@@ -1,28 +1,35 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
+
 public class Main {
     public static void main(String[] args) throws InterruptedException {
-        Counter counter = new Counter();
+        Thread t = new Thread(() -> {
+            for (int i = 0; i < 3; i++) {
+                System.out.println("worker " + i);
+            }
+        });
+        t.start();
+        t.join();
 
-        Thread t1 = new Thread(() -> counter.increment());
-        Thread t2 = new Thread(() -> counter.increment());
+        SafeCounter counter = new SafeCounter();
+        Thread[] threads = new Thread[5];
+        for (int i = 0; i < threads.length; i++) {
+            threads[i] = new Thread(() -> {
+                for (int j = 0; j < 1000; j++) counter.increment();
+            });
+            threads[i].start();
+        }
+        for (Thread th : threads) th.join();
+        System.out.println("synchronized count: " + counter.get());
 
-        t1.start();
-        t2.start();
-
-        t1.join();
-        t2.join();
-
-        System.out.println("Final count: " + counter.getCount());
-    }
-}
-
-class Counter {
-    private int count = 0;
-
-    synchronized void increment() {
-        count++;
-    }
-
-    int getCount() {
-        return count;
+        ExecutorService pool = Executors.newFixedThreadPool(3);
+        for (int i = 1; i <= 5; i++) {
+            int taskId = i;
+            pool.submit(() -> System.out.println("task " + taskId + " on " + Thread.currentThread().getName()));
+        }
+        pool.shutdown();
+        pool.awaitTermination(2, TimeUnit.SECONDS);
+        System.out.println("pool done");
     }
 }

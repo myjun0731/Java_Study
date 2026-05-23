@@ -1,44 +1,21 @@
-import java.util.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-        Item item1 = new Item("Notebook", 10);
-        Item item2 = new Item("Notebook", 10);
+        User u1 = new User("alice", 28);
+        User u2 = new User("alice", 28);
+        User u3 = new User("bob", 31);
 
-        System.out.println(item1);
-        System.out.println("Equals: " + item1.equals(item2));
-        System.out.println("HashCodes: " + item1.hashCode() + ", " + item2.hashCode());
-    }
-}
+        System.out.println(u1);
+        System.out.println("u1.equals(u2): " + u1.equals(u2));
+        System.out.println("u1.equals(u3): " + u1.equals(u3));
+        System.out.println("hash u1=" + u1.hashCode() + ", u2=" + u2.hashCode());
 
-class Item {
-    private final String name;
-    private final int quantity;
-
-    Item(String name, int quantity) {
-        this.name = name;
-        this.quantity = quantity;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (!(obj instanceof Item)) {
-            return false;
-        }
-        Item other = (Item) obj;
-        return quantity == other.quantity && Objects.equals(name, other.name);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, quantity);
-    }
-
-    @Override
-    public String toString() {
-        return "Item{name='" + name + "', quantity=" + quantity + "}";
+        Set<User> set = new HashSet<>();
+        set.add(u1);
+        set.add(u2);
+        set.add(u3);
+        System.out.println("set size = " + set.size());
     }
 }

@@ -1,27 +1,13 @@
 public class Main {
     public static void main(String[] args) {
-        Person person = new Person("Ava", 20);
-        Person defaultPerson = new Person();
+        Product p1 = new Product();
+        Product p2 = new Product("Keyboard");
+        Product p3 = new Product("Mouse", 29_900);
+        Product p4 = new Product(p3);
 
-        person.introduce();
-        defaultPerson.introduce();
-    }
-}
-
-class Person {
-    String name;
-    int age;
-
-    Person() {
-        this("Unknown", 0);
-    }
-
-    Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    void introduce() {
-        System.out.println("Hello, I'm " + name + " and I'm " + age + " years old.");
+        p1.print();
+        p2.print();
+        p3.print();
+        p4.print();
     }
 }

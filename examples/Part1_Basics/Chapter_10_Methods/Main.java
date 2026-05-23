@@ -1,25 +1,12 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        System.out.println("add(3, 4) = " + MathUtils.add(3, 4));
+        System.out.println("add(1.5, 2.5) = " + MathUtils.add(1.5, 2.5));
+        System.out.println("add(1,2,3,4,5) = " + MathUtils.add(1, 2, 3, 4, 5));
 
-        int sum = add(4, 6);
-        System.out.println("Sum: " + sum);
+        MathUtils.printAll("a", "b", "c");
 
-        greet("Ava");
-        greet("Ben", 2);
-    }
-
-    static int add(int a, int b) {
-        return a + b;
-    }
-
-    static void greet(String name) {
-        System.out.println("Hello, " + name + "!");
-    }
-
-    static void greet(String name, int times) {
-        for (int i = 0; i < times; i++) {
-            greet(name);
-        }
+        int[] result = MathUtils.minMax(new int[]{3, 9, 1, 7, 5});
+        System.out.println("min=" + result[0] + ", max=" + result[1]);
     }
 }

@@ -1,31 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        BankAccount account = new BankAccount();
-        account.setOwner("Ava");
-        account.deposit(100);
-        System.out.println(account.getOwner() + " balance: " + account.getBalance());
-    }
-}
+        Member m = new Member("Ava", 28);
 
-class BankAccount {
-    private String owner;
-    private int balance;
+        System.out.println(m.getName() + " / " + m.getAge());
 
-    public String getOwner() {
-        return owner;
-    }
+        m.setAge(30);
+        m.setAge(-5);
+        System.out.println("after setAge: " + m.getAge());
 
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
-
-    public int getBalance() {
-        return balance;
-    }
-
-    public void deposit(int amount) {
-        if (amount > 0) {
-            balance += amount;
-        }
+        m.setPassword("1234");
+        System.out.println("login(1234): " + m.checkPassword("1234"));
+        System.out.println("login(abcd): " + m.checkPassword("abcd"));
     }
 }

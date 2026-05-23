@@ -1,25 +1,27 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
-
-        int a = 10;
-        int b = 3;
-
+        int a = 10, b = 3;
         System.out.println("a + b = " + (a + b));
         System.out.println("a - b = " + (a - b));
         System.out.println("a * b = " + (a * b));
         System.out.println("a / b = " + (a / b));
         System.out.println("a % b = " + (a % b));
 
-        boolean isEqual = (a == b);
-        boolean isGreater = (a > b);
-        boolean isInRange = (a > 5 && b < 5);
+        System.out.println("a > b : " + (a > b));
+        System.out.println("a == b: " + (a == b));
 
-        String result = isGreater ? "a is greater" : "a is not greater";
+        boolean x = true, y = false;
+        System.out.println("x && y: " + (x && y));
+        System.out.println("x || y: " + (x || y));
+        System.out.println("!x    : " + !x);
 
-        System.out.println("a == b? " + isEqual);
-        System.out.println("a > b? " + isGreater);
-        System.out.println("Is in range? " + isInRange);
-        System.out.println(result);
+        int score = 75;
+        String grade = (score >= 60) ? "PASS" : "FAIL";
+        System.out.println("grade : " + grade);
+
+        System.out.println("5 & 3 = " + (5 & 3));
+        System.out.println("5 | 3 = " + (5 | 3));
+        System.out.println("5 ^ 3 = " + (5 ^ 3));
+        System.out.println("1 << 3 = " + (1 << 3));
     }
 }

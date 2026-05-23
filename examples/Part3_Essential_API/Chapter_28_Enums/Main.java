@@ -1,23 +1,23 @@
 public class Main {
     public static void main(String[] args) {
-        Level level = Level.MEDIUM;
-        System.out.println("Level: " + level);
-        System.out.println("Priority: " + level.getPriority());
-    }
-}
+        Priority p = Priority.HIGH;
+        System.out.println("name    : " + p.name());
+        System.out.println("ordinal : " + p.ordinal());
+        System.out.println("level   : " + p.getLevel());
 
-enum Level {
-    LOW(1),
-    MEDIUM(2),
-    HIGH(3);
+        for (Priority value : Priority.values()) {
+            System.out.println(" - " + value + " (" + value.getLevel() + ")");
+        }
 
-    private final int priority;
+        String msg = switch (p) {
+            case LOW -> "can wait";
+            case MEDIUM -> "do soon";
+            case HIGH -> "do now";
+            case CRITICAL -> "drop everything";
+        };
+        System.out.println("action  : " + msg);
 
-    Level(int priority) {
-        this.priority = priority;
-    }
-
-    int getPriority() {
-        return priority;
+        Priority parsed = Priority.valueOf("MEDIUM");
+        System.out.println("parsed  : " + parsed);
     }
 }
