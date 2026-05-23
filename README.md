@@ -18,6 +18,16 @@
 3. **구구단 출력 (이중 반복문)**
     - 사용자로부터 2에서 9 사이의 숫자를 입력받지 않고, 2단부터 9단까지 전체 구구단을 출력하세요.
     - 이중 `for` 문 혹은 `while` 문을 사용하여 `2 * 1 = 2` 형식으로 출력되도록 구현하세요.
+4. **짝수/홀수 판별 (조건문)**
+    - 사용자로부터 정수 하나를 입력받아 짝수인지 홀수인지 판별하는 프로그램을 작성하세요.
+    - `if-else` 문과 나머지 연산자(`%`)를 활용하세요.
+5. **별 찍기 (반복문)**
+    - 사용자로부터 줄 수 n을 입력받아 직각삼각형 모양의 별을 출력하세요.
+    - n이 5라면 1줄에 별 1개, 2줄에 별 2개, ... 5줄에 별 5개가 출력되어야 합니다.
+    - 이중 반복문을 사용하세요.
+6. **소수 판별 (반복문 + 조건문)**
+    - 사용자로부터 2 이상의 정수를 입력받아 해당 숫자가 소수(Prime number)인지 판별하세요.
+    - 2부터 √n 까지 반복문으로 나누어보며 소수 여부를 확인하세요.
 
 ---
 
@@ -37,6 +47,18 @@
     - `RemoteControl` 인터페이스를 정의하고 `turnOn()`, `turnOff()` 추상 메서드를 선언하세요.
     - 이 인터페이스를 구현하는 `Television` 클래스를 작성하세요.
     - 전원이 켜지고 꺼지는 메시지를 출력하도록 메서드를 구현하세요.
+4. **은행 계좌 (캡슐화)**
+    - `BankAccount` 클래스를 만들고 `owner`, `balance` 필드를 `private`으로 선언하세요.
+    - `deposit(int amount)`, `withdraw(int amount)`, `displayBalance()` 메서드를 작성하세요.
+    - 잔액보다 큰 금액을 출금하려고 하면 "잔액이 부족합니다" 메시지를 출력하세요.
+5. **추상 클래스 도형 (Abstract Class)**
+    - 추상 클래스 `Shape`를 만들고 추상 메서드 `area()`를 선언하세요.
+    - `Shape`를 상속받는 `Circle`, `Rectangle` 클래스를 작성하고 각각 넓이를 계산하도록 구현하세요.
+    - `Shape[]` 배열에 두 객체를 담아 반복문으로 넓이를 출력해 보세요.
+6. **사람과 학생 (super 활용)**
+    - `Person` 클래스에 `name`, `age` 필드를 선언하고, `introduce()` 메서드를 구현하세요.
+    - `Person`을 상속받는 `Student` 클래스를 만들고 `major` 필드를 추가하세요.
+    - `Student`의 `introduce()`에서 `super.introduce()`를 호출한 뒤 전공 정보도 출력하세요.
 
 ---
 
@@ -53,6 +75,16 @@
 3. **오늘 날짜 포맷팅 (Date/Time API)**
     - `LocalDateTime`을 사용하여 현재 날짜와 시간을 가져오세요.
     - `DateTimeFormatter`를 활용하여 "2024년 05월 20일 14시 30분"과 같은 형식으로 출력하세요.
+4. **문장 단어 분리 (String.split)**
+    - 한 문장(예: "Java is fun and powerful")을 공백 기준으로 분리하세요.
+    - `String.split()`을 사용하여 단어 배열을 만들고, 각 단어와 총 단어 수를 출력하세요.
+5. **사용자 정의 예외 (Custom Exception)**
+    - `Exception`을 상속한 `InvalidAgeException`을 정의하세요.
+    - 나이가 19세 미만이면 해당 예외를 던지는 `checkAge(int age)` 메서드를 작성하세요.
+    - `try-catch`로 예외를 잡아 메시지를 출력하세요.
+6. **두 날짜 사이의 일수 (ChronoUnit)**
+    - `LocalDate`로 두 날짜를 정의하세요 (예: 2024-01-01, 2024-12-31).
+    - `ChronoUnit.DAYS.between()`을 사용하여 두 날짜 사이의 일수를 계산해 출력하세요.
 
 ---
 
@@ -69,6 +101,15 @@
 3. **단어 사전 (Map)**
     - `HashMap<String, String>`을 사용하여 영단어와 뜻을 저장하세요 (예: "apple" -> "사과").
     - 3개의 단어를 저장한 뒤, 특정 영단어(Key)로 뜻(Value)을 찾아 출력하는 코드를 작성하세요.
+4. **우선순위 큐 (PriorityQueue)**
+    - `PriorityQueue<Integer>`에 임의의 정수 5개를 `offer()`로 삽입하세요.
+    - `poll()`을 사용하여 큐가 빌 때까지 꺼내며, 작은 값부터 출력되는 것을 확인하세요.
+5. **단어 빈도수 계산 (Map.getOrDefault)**
+    - 문장(예: "apple banana apple orange banana apple")을 공백으로 분리하세요.
+    - `HashMap`과 `getOrDefault`를 사용해 각 단어가 몇 번 등장하는지 카운트하여 출력하세요.
+6. **정렬된 Set (TreeSet)**
+    - `TreeSet<String>`에 임의의 이름 여러 개를 중복 포함해 저장하세요.
+    - 중복이 자동 제거되고 알파벳 순으로 정렬되어 출력되는 것을 확인하세요.
 
 ---
 
@@ -85,3 +126,12 @@
 3. **카운트다운 쓰레드 (Thread)**
     - 1부터 10까지 숫자를 1초 간격으로 출력하는 쓰레드를 구현하세요.
     - `Thread.sleep(1000)`을 사용하여 1초 대기 효과를 주고, 람다 표현식을 사용하여 `Runnable`을 구현해 보세요.
+4. **Stream 통계 (IntSummaryStatistics)**
+    - 정수 10개가 담긴 `List<Integer>`를 만드세요.
+    - Stream의 `mapToInt`와 `summaryStatistics()`를 사용하여 합계, 평균, 최대, 최소를 한 번에 구하세요.
+5. **Optional 사용하기 (Optional)**
+    - `findUserName(int id)` 메서드가 `Optional<String>`을 반환하도록 작성하세요.
+    - 존재하지 않는 ID를 조회했을 때 `orElse` 또는 `ifPresentOrElse`로 적절한 분기 처리를 구현하세요.
+6. **함수형 인터페이스 (Predicate & Function)**
+    - `Predicate<Integer>`로 짝수 판별 람다, `Function<Integer, Integer>`로 제곱 계산 람다를 정의하세요.
+    - 정수 리스트를 Stream으로 처리하여 짝수만 필터링하고 제곱 결과를 출력하세요.
